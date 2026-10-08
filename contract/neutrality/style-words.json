@@ -1,0 +1,27 @@
+{
+  "description": "Metaphors and filler that user-facing copy never uses, so an ordinary reader gets plain words. Matched like banned-words.json: case-insensitively as whole words; curly apostrophes count as straight ones. Code identifiers may keep these words; the check runs on what a reader sees or hears.",
+  "phrases": [
+    "lands",
+    "grain",
+    "grains",
+    "brass",
+    "heap",
+    "heaps",
+    "ledger",
+    "tide",
+    "pour",
+    "pours",
+    "poured",
+    "pouring",
+    "rain",
+    "rains",
+    "skyline",
+    "skylines",
+    "delve",
+    "tapestry",
+    "landscape",
+    "unpack",
+    "journey",
+    "in this film"
+  ]
+}

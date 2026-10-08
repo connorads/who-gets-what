@@ -1,0 +1,41 @@
+[project]
+name = "wgw-pipeline"
+version = "0.1.0"
+description = "Who Gets What data pipeline: ingest, canonical Parquet model and compiled site data"
+requires-python = ">=3.14"
+dependencies = [
+  "duckdb>=1.4",
+  "numpy>=2.3",
+  "pandas>=2.3",
+  "pyarrow>=21",
+  "python-calamine>=0.5",
+  "requests>=2.32",
+  "shapely>=2.1",
+]
+
+[project.scripts]
+wgw-pipeline = "wgw_pipeline.cli:main"
+
+[dependency-groups]
+dev = ["jsonschema>=4.25", "pytest>=8.4", "ruff>=0.13"]
+
+[build-system]
+requires = ["uv_build>=0.8,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv]
+# Same release-age quarantine as pnpm (minimumReleaseAge 5760 minutes).
+exclude-newer = "4 days"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+# `ruff format` owns line length; long lines left are URLs and copy.
+ignore = ["E501"]

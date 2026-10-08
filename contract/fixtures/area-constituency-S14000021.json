@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 2,
+  "release": "2026-10-05.1",
+  "level": "constituency",
+  "area": {
+    "code": "S14000021",
+    "name": "East Renfrewshire",
+    "slug": "east-renfrewshire",
+    "nation": "scotland",
+    "region": {
+      "code": "S92000003",
+      "name": "Scotland"
+    }
+  },
+  "overlaps": [
+    {
+      "level": "local-authority",
+      "code": "S12000011",
+      "name": "East Renfrewshire",
+      "slug": "east-renfrewshire",
+      "populationShare": 0.93
+    }
+  ],
+  "population": {
+    "period": "mid-2024",
+    "total": 99440,
+    "aged0to15": 19967,
+    "aged16to64": 57466,
+    "aged66plus": 20719
+  },
+  "facts": [
+    {
+      "metric": "spend-pensioner",
+      "period": "2024-25",
+      "denominators": ["total", "per-aged-66-plus"],
+      "values": [248620000, 12000],
+      "flags": [33, 33],
+      "ranks": [1, 2]
+    }
+  ],
+  "spendByFamily": {
+    "period": "2024-25",
+    "items": [
+      {
+        "family": "state-pension",
+        "value": 220000000,
+        "flags": 0
+      },
+      {
+        "family": "attendance-allowance",
+        "value": 12000000,
+        "flags": 33
+      }
+    ]
+  },
+  "series": [
+    {
+      "metric": "spend-pensioner",
+      "denominator": "per-aged-66-plus",
+      "periodKind": "fiscal-year",
+      "periods": ["2023-24", "2024-25"],
+      "values": [11200, 12000],
+      "flags": [33, 33]
+    }
+  ],
+  "decomposition": [
+    {
+      "family": "state-pension",
+      "population": [20100, 20719],
+      "claimants": [19800, 20500],
+      "meanWeeklyAward": [190.5, 221.75],
+      "flags": 0
+    }
+  ],
+  "expected": [
+    {
+      "metric": "spend-pensioner-vs-model",
+      "actual": 12000,
+      "expected": 11650.5,
+      "residual": 349.5,
+      "flags": 35,
+      "missingInputs": []
+    }
+  ],
+  "neighbours": {
+    "missingInputs": [],
+    "areas": [
+      {
+        "code": "S14000024",
+        "name": "Edinburgh South West",
+        "slug": "edinburgh-south-west",
+        "distance": 0.412
+      },
+      {
+        "code": "E14001063",
+        "name": "Aldershot",
+        "slug": "aldershot",
+        "distance": 0.538
+      }
+    ]
+  },
+  "deprivation": {
+    "source": "simd-2020",
+    "nation": "scotland",
+    "decile": 9
+  },
+  "representation": {
+    "member": "Example Member",
+    "party": "Example Party",
+    "since": "2024-07-04"
+  },
+  "election": {
+    "date": "2024-07-04",
+    "electorate": 70000,
+    "validVotes": 42000,
+    "turnout": 0.6,
+    "majority": 4200,
+    "majorityShare": 0.1,
+    "candidates": [
+      { "party": "Example Party", "name": "Example Member", "votes": 16800, "share": 0.4 },
+      { "party": "Other Party", "name": "Example Candidate", "votes": 12600, "share": 0.3 },
+      { "party": "Independent", "name": "Another Candidate", "votes": 12600, "share": 0.3 }
+    ]
+  },
+  "conditions": null,
+  "caveats": ["scotland-harmonised", "pip-conditions-scotland"]
+}

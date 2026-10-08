@@ -1,0 +1,22 @@
+#!/bin/sh
+# hk pre-commit hook - tracked wrapper. Streams hk output directly.
+
+# HK=0 bypasses all hooks (mirrors `HK=0 git commit`).
+if [ "${HK:-1}" = "0" ]; then
+  exit 0
+fi
+
+# Find hk: on PATH, else via mise (covers shells without mise activated).
+HK_BIN=""
+if command -v hk >/dev/null 2>&1; then
+  HK_BIN="$(command -v hk)"
+elif command -v mise >/dev/null 2>&1; then
+  HK_BIN="$(mise which hk 2>/dev/null || true)"
+fi
+
+if [ -z "$HK_BIN" ]; then
+  echo "hk not found. Install tools with: mise install" >&2
+  exit 1
+fi
+
+exec "$HK_BIN" run pre-commit -q "$@"

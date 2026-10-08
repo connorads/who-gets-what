@@ -1,0 +1,17 @@
+# Cache rules for static assets; responses the Worker renders ignore this file.
+
+# Vite puts a content hash in every file name here.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Each data release has its own folder and never changes after publishing.
+/data/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fixed names whose content can change in a deploy.
+/audio/*
+  Cache-Control: public, max-age=86400
+/brand/*
+  Cache-Control: public, max-age=86400
+/og/*
+  Cache-Control: public, max-age=86400

@@ -1,0 +1,17 @@
+# Release-age quarantine and trust policy, repeated here so CI and Workers
+# Builds enforce what the maintainer's global pnpm config enforces locally.
+minimumReleaseAge: 5760
+minimumReleaseAgeStrict: true
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 525600
+blockExoticSubdeps: true
+
+# Denied: each postinstall only verifies or relinks the binary that pnpm already
+# installs from the platform optional package (@esbuild/<platform>,
+# @cloudflare/workerd-<platform>, @img/sharp-<platform>). Build, test and
+# wrangler dry-run pass without it.
+allowBuilds:
+  esbuild: false
+  lightningcss: set this to true or false
+  sharp: false
+  workerd: false

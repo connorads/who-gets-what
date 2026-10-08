@@ -1,0 +1,79 @@
+amends "package://github.com/jdx/hk/releases/download/v2.4.0/hk@2.4.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.4.0/hk@2.4.0#/Builtins.pkl"
+
+exclude = List("node_modules", "dist", ".wrangler", ".tanstack")
+display_skip_reasons = List()
+terminal_progress = false
+
+local binary_excludes = List(
+    "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.ico", "*.svg",
+    "*.woff", "*.woff2", "*.ttf", "*.eot", "*.pdf", "*.zip"
+)
+local generated = List("src/routeTree.gen.ts", "worker-configuration.d.ts")
+local js_glob = List("**/*.ts", "**/*.tsx", "**/*.js", "**/*.mjs", "**/*.cjs")
+
+steps {
+    // --- Tier 1: formatting (pre-commit fixes and re-stages) ---
+    ["trailing-whitespace"] = (Builtins.trailing_whitespace) {
+        exclude = binary_excludes + generated
+    }
+    ["newlines"] = (Builtins.newlines) {
+        exclude = binary_excludes + generated
+    }
+    // Check-only: the builtin's fix rewrites domain terms (LSOAs -> ALSOAs).
+    ["typos"] {
+        exclude = binary_excludes + generated + List("pnpm-lock.yaml")
+        check = "typos --force-exclude {{files}}"
+    }
+    ["rumdl"] = Builtins.rumdl
+    // Generated files and the vendored hook checker sit in .oxfmtrc.json
+    // ignorePatterns; a commit touching only those would otherwise pass oxfmt
+    // zero targets, which it treats as an error.
+    ["oxfmt"] {
+        glob = js_glob + List("**/*.json", "**/*.jsonc", "**/*.yaml", "**/*.yml", "**/*.css")
+        exclude = generated + List("pnpm-lock.yaml", ".hk-hooks/**")
+        check = "pnpm exec oxfmt --check --no-error-on-unmatched-pattern {{files}}"
+        fix = "pnpm exec oxfmt --no-error-on-unmatched-pattern {{files}}"
+    }
+    ["ruff-format"] {
+        glob = List("pipeline/**/*.py")
+        check = "uv run --project pipeline ruff format --check {{files}}"
+        fix = "uv run --project pipeline ruff format {{files}}"
+    }
+
+    // --- Tier 2: lint and validation gates ---
+    ["oxlint"] {
+        glob = js_glob
+        exclude = generated + List(".hk-hooks/**")
+        check = "pnpm exec oxlint -c .oxlintrc.json --deny-warnings {{files}}"
+    }
+    // Whole-package run: a pyproject.toml change can alter every file's result.
+    ["ruff"] {
+        glob = List("pipeline/**/*.py", "pipeline/pyproject.toml")
+        check = "uv run --project pipeline ruff check pipeline"
+    }
+    ["check-merge-conflict"] = Builtins.check_merge_conflict
+    // Globless, so every commit runs it. Scans only the staged diff: ignored
+    // files such as pipeline/.env never reach a commit and are not scanned.
+    ["gitleaks"] {
+        check = "gitleaks git --pre-commit --staged --redact --verbose --no-banner ."
+    }
+    ["pnpm-build-scripts"] {
+        glob = List("package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml")
+        check = "node .hk-hooks/pnpm-build-scripts-check.mjs"
+    }
+
+    // --- Tier 3 and 4: whole-project gates, globless so deletions still run them ---
+    ["typecheck"] {
+        check = "pnpm run -s typecheck"
+    }
+    ["test"] {
+        check = "pnpm run -s test"
+    }
+    // Unit and contract-fixture tests always run; tests over pipeline output
+    // skip when pipeline/build has not been compiled.
+    ["pytest"] {
+        glob = List("pipeline/**", "contract/**")
+        check = "pnpm run -s data:test"
+    }
+}

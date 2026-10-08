@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 2,
+  "release": "2026-10-05.1",
+  "priceBase": "2026-27",
+  "defaultMetric": "spend-pensioner",
+  "metrics": [
+    {
+      "id": "spend-pensioner",
+      "label": "Spending on pensioner benefits",
+      "shortLabel": "Pensioner benefits",
+      "description": "State Pension, Pension Credit, Attendance Allowance and its Scottish replacement, and winter heating payments.",
+      "unit": "gbp",
+      "rateScale": 1,
+      "levels": ["constituency", "local-authority"],
+      "denominators": ["total", "per-resident", "per-aged-66-plus"],
+      "defaultDenominator": "per-aged-66-plus",
+      "periodKind": "fiscal-year",
+      "periods": ["2023-24", "2024-25"],
+      "families": ["state-pension", "pension-credit", "attendance-allowance", "winter-fuel"],
+      "provenance": "measured",
+      "sources": ["dwp-benefit-expenditure-by-area", "sss-padp"],
+      "caveats": ["scotland-harmonised"],
+      "coverage": [
+        {
+          "period": "2023-24",
+          "nations": ["england", "wales", "scotland"]
+        },
+        {
+          "period": "2024-25",
+          "nations": ["england", "wales", "scotland"]
+        }
+      ]
+    },
+    {
+      "id": "claimants-pension-credit",
+      "label": "People receiving Pension Credit",
+      "shortLabel": "Pension Credit",
+      "description": "People receiving Pension Credit, in each month with published figures.",
+      "unit": "people",
+      "rateScale": 1000,
+      "levels": ["constituency"],
+      "denominators": ["total", "per-aged-66-plus"],
+      "defaultDenominator": "per-aged-66-plus",
+      "periodKind": "month",
+      "periods": ["2025-12", "2026-03"],
+      "families": ["pension-credit"],
+      "provenance": "measured",
+      "sources": ["dwp-stat-xplore"],
+      "caveats": [],
+      "coverage": [
+        {
+          "period": "2025-12",
+          "nations": ["england", "wales", "scotland"]
+        },
+        {
+          "period": "2026-03",
+          "nations": ["england", "wales", "scotland"]
+        }
+      ]
+    },
+    {
+      "id": "spend-pensioner-vs-model",
+      "label": "Spending on pensioner benefits, compared with the expected level",
+      "shortLabel": "Pensioner benefits against expected",
+      "description": "Actual spending per person aged 66 and over minus the level we would expect from the area's profile.",
+      "unit": "gbp",
+      "rateScale": 1,
+      "levels": ["constituency", "local-authority"],
+      "denominators": ["per-aged-66-plus"],
+      "defaultDenominator": "per-aged-66-plus",
+      "periodKind": "fiscal-year",
+      "periods": ["2024-25"],
+      "families": ["state-pension", "pension-credit", "attendance-allowance", "winter-fuel"],
+      "provenance": "modelled",
+      "sources": ["dwp-benefit-expenditure-by-area", "ons-ashe"],
+      "caveats": ["scotland-harmonised"],
+      "coverage": [
+        {
+          "period": "2024-25",
+          "nations": ["england", "wales", "scotland"]
+        }
+      ]
+    }
+  ],
+  "families": [
+    {
+      "id": "attendance-allowance",
+      "label": "Attendance Allowance and Pension Age Disability Payment",
+      "description": "Disability support for people over State Pension age.",
+      "members": [
+        {
+          "code": "AA",
+          "label": "Attendance Allowance",
+          "administrator": "DWP",
+          "nations": ["england", "wales", "scotland"],
+          "from": null,
+          "to": null
+        },
+        {
+          "code": "PADP",
+          "label": "Pension Age Disability Payment",
+          "administrator": "SSS",
+          "nations": ["scotland"],
+          "from": "2025-26",
+          "to": null
+        }
+      ]
+    }
+  ],
+  "fiscalYears": [
+    {
+      "id": "2023-24",
+      "status": "outturn",
+      "realGdp": 1.0712,
+      "realCpi": 1.0821
+    },
+    {
+      "id": "2024-25",
+      "status": "outturn",
+      "realGdp": 1.0455,
+      "realCpi": 1.0502
+    },
+    {
+      "id": "2026-27",
+      "status": "forecast",
+      "realGdp": 1,
+      "realCpi": 1
+    }
+  ],
+  "sources": [
+    {
+      "id": "dwp-benefit-expenditure-by-area",
+      "publisher": "Department for Work and Pensions",
+      "title": "Benefit expenditure by parliamentary constituency 2024-25",
+      "url": "https://assets.publishing.service.gov.uk/media/693ffc50c72b0f8ccf33d788/benefit-expenditure-by-parliamentary-constituency-2024-25.ods",
+      "published": "2025-12-15",
+      "licence": "Open Government Licence v3.0"
+    },
+    {
+      "id": "dwp-stat-xplore",
+      "publisher": "Department for Work and Pensions",
+      "title": "Stat-Xplore",
+      "url": "https://stat-xplore.dwp.gov.uk/",
+      "published": "2026-08-12",
+      "licence": "Open Government Licence v3.0"
+    },
+    {
+      "id": "sss-padp",
+      "publisher": "Social Security Scotland",
+      "title": "Pension Age Disability Payment statistics",
+      "url": "https://www.socialsecurity.gov.scot/reporting/publications",
+      "published": "2026-08-26",
+      "licence": "Open Government Licence v3.0"
+    },
+    {
+      "id": "ons-ashe",
+      "publisher": "Office for National Statistics",
+      "title": "Annual Survey of Hours and Earnings, resident analysis, 2024",
+      "url": "https://www.nomisweb.co.uk/datasets/asher",
+      "published": "2024-10-23",
+      "licence": "Open Government Licence v3.0"
+    }
+  ],
+  "caveats": [
+    {
+      "id": "scotland-harmonised",
+      "text": "Scottish values include Social Security Scotland benefits that replace DWP benefits. Constituency values for these are apportioned from council data."
+    },
+    {
+      "id": "pip-conditions-scotland",
+      "text": "No breakdown by condition for Scottish areas."
+    }
+  ],
+  "models": {
+    "inputs": [
+      {
+        "id": "share-aged-66-plus",
+        "label": "Share of residents aged 66 and over",
+        "period": "mid-2024",
+        "sources": ["dwp-stat-xplore"]
+      },
+      {
+        "id": "median-pay",
+        "label": "Median gross annual pay of full-time employees living in the area",
+        "period": "April 2024",
+        "sources": ["ons-ashe"]
+      },
+      {
+        "id": "population-density",
+        "label": "Residents per square kilometre of land",
+        "period": "mid-2024",
+        "sources": ["dwp-stat-xplore"]
+      }
+    ],
+    "expected": {
+      "method": "Ordinary least squares across every area of the level.",
+      "period": "2024-25",
+      "inputs": ["share-aged-66-plus", "median-pay"],
+      "fits": [
+        {
+          "metric": "spend-pensioner-vs-model",
+          "actualMetric": "spend-pensioner",
+          "denominator": "per-aged-66-plus",
+          "levels": {
+            "constituency": {
+              "observations": 625,
+              "rSquared": 0.39,
+              "terms": [
+                {
+                  "id": "intercept",
+                  "label": "Intercept",
+                  "coefficient": 15303.7,
+                  "standardError": 1200.5
+                },
+                {
+                  "id": "share-aged-66-plus",
+                  "label": "Share of residents aged 66 and over, from 0 to 1",
+                  "coefficient": -3208.3,
+                  "standardError": 410.2
+                },
+                {
+                  "id": "log-median-pay",
+                  "label": "Natural logarithm of median annual pay",
+                  "coefficient": -206.4,
+                  "standardError": 95.1
+                }
+              ]
+            },
+            "local-authority": {
+              "observations": 625,
+              "rSquared": 0.39,
+              "terms": [
+                {
+                  "id": "intercept",
+                  "label": "Intercept",
+                  "coefficient": 15303.7,
+                  "standardError": 1200.5
+                },
+                {
+                  "id": "share-aged-66-plus",
+                  "label": "Share of residents aged 66 and over, from 0 to 1",
+                  "coefficient": -3208.3,
+                  "standardError": 410.2
+                },
+                {
+                  "id": "log-median-pay",
+                  "label": "Natural logarithm of median annual pay",
+                  "coefficient": -206.4,
+                  "standardError": 95.1
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "neighbours": {
+      "method": "The nearest areas of the same level on standardised profile measures.",
+      "count": 15,
+      "features": ["share-aged-66-plus", "median-pay", "population-density"]
+    }
+  },
+  "conditions": {
+    "month": "2026-03",
+    "nations": ["england", "wales"],
+    "sources": ["dwp-stat-xplore"],
+    "groups": [
+      {
+        "id": "psychiatric-disorders",
+        "label": "Psychiatric disorders",
+        "claimants": 6000,
+        "share": 0.6
+      },
+      {
+        "id": "neurological-disease",
+        "label": "Neurological disease",
+        "claimants": 4000,
+        "share": 0.4
+      }
+    ]
+  },
+  "decomposition": {
+    "method": "Annual spending is the eligible population, times the share claiming, times the mean weekly award, times 52. The change splits into population, claim-rate and award-size parts that add up exactly.",
+    "families": [
+      {
+        "family": "state-pension",
+        "benefit": "SP",
+        "claimantUnit": "people",
+        "denominator": "per-aged-66-plus",
+        "from": "2023-05",
+        "to": "2026-05",
+        "populationPeriods": ["mid-2023", "mid-2024"],
+        "nations": ["england", "wales", "scotland"],
+        "gb": {
+          "constituency": {
+            "population": [11800000, 12100000],
+            "claimants": [12400000, 12900000],
+            "meanWeeklyAward": [190.5, 221.75]
+          },
+          "local-authority": {
+            "population": [11800000, 12100000],
+            "claimants": [12400000, 12900000],
+            "meanWeeklyAward": [190.5, 221.75]
+          }
+        }
+      }
+    ]
+  }
+}

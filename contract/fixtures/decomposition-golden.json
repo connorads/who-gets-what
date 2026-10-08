@@ -1,0 +1,46 @@
+{
+  "description": "Change decomposition inputs, price factors and the effects both languages must compute (relative tolerance 1e-9). Values are made up.",
+  "from": "2023-05",
+  "to": "2026-05",
+  "inputs": {
+    "population": [20100, 20719],
+    "claimants": [19800, 20500],
+    "meanWeeklyAward": [190.5, 221.75]
+  },
+  "factors": {
+    "2023-24": {
+      "realGdp": 1.0712,
+      "realCpi": 1.0821
+    },
+    "2026-27": {
+      "realGdp": 1,
+      "realCpi": 1
+    }
+  },
+  "expected": {
+    "nominal": {
+      "from": 196138800.0,
+      "to": 236385500.0,
+      "change": 40246700.0,
+      "population": 6540544.856849536,
+      "claimRate": 951304.2716490177,
+      "awardSize": 32754850.8715015
+    },
+    "real-gdp": {
+      "from": 210103882.56,
+      "to": 236385500.0,
+      "change": 26281617.439999998,
+      "population": 6763482.606644917,
+      "claimRate": 983729.954575122,
+      "awardSize": 18534404.878780216
+    },
+    "real-cpi": {
+      "from": 212241795.48000002,
+      "to": 236385500.0,
+      "change": 24143704.51999998,
+      "population": 6797159.681252632,
+      "claimRate": 988628.192509751,
+      "awardSize": 16357916.646237863
+    }
+  }
+}

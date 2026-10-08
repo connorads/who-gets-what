@@ -1,0 +1,21 @@
+{
+  "header": {
+    "kind": "series",
+    "release": "2026-10-05.1",
+    "level": "constituency",
+    "areaCount": 3,
+    "areaOrderHash": "43d588a123b537d8",
+    "sections": [
+      { "name": "values", "dtype": "f32", "length": 6 },
+      { "name": "flags", "dtype": "u8", "length": 6 }
+    ],
+    "metric": "spend-pensioner",
+    "denominator": "per-aged-66-plus",
+    "unit": "gbp",
+    "rateScale": 1,
+    "periodKind": "fiscal-year",
+    "periods": ["2023-24", "2024-25"]
+  },
+  "values": [10500, 11200, 9800.5, 11000, 12000, null],
+  "flags": [0, 33, 0, 0, 33, 8]
+}

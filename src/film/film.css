@@ -1,0 +1,1216 @@
+/*
+ * The film plays on the site's own paper: oat in the light theme, espresso in
+ * the dark, so every colour here is a site token. Read mode is the
+ * server-rendered page: poster, then each chapter's still and words. Watch
+ * mode pins the stage and turns each chapter into a run of scroll.
+ */
+
+.film {
+  --film-ink: var(--paper);
+  --film-bar: clamp(1.25rem, 5svh, 3rem);
+  --film-text: var(--ink);
+  --film-muted: var(--ink-muted);
+  /* Emphasis on the stage: a figure, a pressed choice, the playhead. */
+  --film-hi: var(--brass-ink);
+  /* Cards over the canvas: the paper's raised surface, a touch see-through. */
+  --film-card: color-mix(in oklab, var(--surface) 92%, transparent);
+  --film-shadow: 0 10px 30px -18px color-mix(in oklab, var(--brand-ink) 45%, transparent);
+  position: relative;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  background: var(--film-ink);
+  color: var(--film-text);
+}
+
+.film a {
+  color: inherit;
+}
+
+/* The pinned stage fills the screen, so the site header scrolls away instead of sitting over it. */
+body:has(.film) .site-header {
+  position: relative;
+}
+
+.film :focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------- stage */
+
+.film-reel {
+  position: relative;
+}
+
+.film-stage {
+  position: relative;
+  height: 100svh;
+  /* clip, not hidden: a hidden box can still be scrolled sideways by focus or overlays. */
+  overflow: clip;
+  isolation: isolate;
+}
+
+.film-canvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 600ms var(--ease-film);
+}
+
+.film[data-engine='ready'] .film-canvas {
+  opacity: 1;
+}
+
+.film-bar {
+  position: absolute;
+  inset-inline: 0;
+  z-index: 4;
+  height: var(--film-bar);
+  background: var(--film-ink);
+  pointer-events: none;
+  transition: transform var(--dur-film) var(--ease-film);
+}
+
+.film-bar--top {
+  top: 0;
+}
+
+.film-bar--bottom {
+  bottom: 0;
+}
+
+.film[data-open='true'] .film-bar--top {
+  transform: translateY(-100%);
+}
+
+.film[data-open='true'] .film-bar--bottom {
+  transform: translateY(100%);
+}
+
+.film-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------- poster */
+
+.film-poster {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1.25rem;
+  padding: calc(var(--film-bar) + 1rem) 1rem;
+  text-align: center;
+}
+
+.film-poster h1 {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.film-title {
+  padding: 0.35rem 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--brass-ink);
+  background: var(--tone-soft);
+  border-radius: 999px;
+}
+
+.film-figure {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 25vw, 14rem);
+  font-weight: 700;
+  white-space: nowrap;
+  font-variation-settings: 'opsz' 96;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  font-variant-numeric: lining-nums;
+}
+
+.film-figure .char {
+  display: inline-block;
+}
+
+.film-sub {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--film-muted);
+  font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+  text-wrap: balance;
+}
+
+/* One Play button for a first visit; Watch again or the explorer for a viewer back again. */
+.film-start {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.film-start__first,
+.film-start__again {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.film-start__again,
+.film[data-returning='true'] .film-start__first {
+  display: none;
+}
+
+.film[data-returning='true'] .film-start__again {
+  display: flex;
+}
+
+/* Play needs script; without it the page reads as text. */
+.film:not([data-script]) .film-play {
+  display: none;
+}
+
+/* Big and round: the one action on the poster. */
+.film-play {
+  display: inline-flex;
+  gap: 0.9rem;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.4rem 1.5rem 0.4rem 0.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--tone);
+  box-shadow: 0 10px 24px -12px color-mix(in oklab, var(--tone) 80%, transparent);
+  color: var(--tone-ink);
+  font: inherit;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--dur-chip) var(--ease-ledger);
+}
+
+.film-play:hover {
+  transform: translateY(-1px);
+}
+
+.film-play:active {
+  transform: scale(0.98);
+}
+
+.film-play__icon {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 999px;
+  background: var(--tone-ink);
+  color: var(--tone);
+}
+
+.film-play__icon--play svg {
+  margin-left: 3px;
+  fill: currentColor;
+}
+
+.film .film-play--quiet {
+  padding-inline: 1.4rem;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  box-shadow: none;
+  color: var(--film-text);
+}
+
+.film-start__link {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--film-muted);
+  text-decoration-color: var(--rule-strong);
+  text-underline-offset: 0.25em;
+}
+
+.film-start__note {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--film-muted);
+}
+
+/* ------------------------------------------------------------- controls */
+
+.film-button {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--film-text);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.film-button:hover {
+  background: var(--sunken);
+}
+
+.film-button[aria-pressed='true'] {
+  border-color: transparent;
+  background: var(--tone-soft);
+  color: var(--brass-ink);
+}
+
+.film-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Top left, above the chapter cards: the heap and the wall reach the foot of the stage. */
+.film-key {
+  position: absolute;
+  left: 1rem;
+  top: calc(var(--film-bar) + 0.75rem);
+  z-index: 5;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--film-muted);
+}
+
+/* What the area marks measure; top right, clear of the captions and the chapter cards. */
+.film-scale {
+  position: absolute;
+  right: 1rem;
+  top: calc(var(--film-bar) + 0.75rem);
+  z-index: 5;
+  display: grid;
+  justify-items: end;
+  gap: 0.375rem;
+  max-width: min(20rem, calc(100% - 2rem));
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: var(--film-card);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  text-align: right;
+  color: var(--film-muted);
+  opacity: 0;
+}
+
+.film-scale__basis {
+  white-space: nowrap;
+}
+
+.film-scale__ramp,
+.film-scale__steps {
+  display: flex;
+  align-items: center;
+}
+
+.film-scale__ramp {
+  gap: 0.375rem;
+}
+
+.film-scale__steps i {
+  width: 1rem;
+  height: 0.5rem;
+}
+
+.film-key::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--brass);
+}
+
+.film-captions {
+  position: absolute;
+  inset-inline: 0;
+  bottom: calc(var(--film-bar) + 1rem);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  padding-inline: 1rem;
+  pointer-events: none;
+}
+
+.film-captions p,
+.film-player__caption p {
+  max-width: 44rem;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--film-card);
+  box-shadow: var(--film-shadow);
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  line-height: 1.4;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.film-captions .word,
+.film-player__caption .word {
+  color: var(--film-muted);
+  transition: color var(--dur-chip) linear;
+}
+
+.film-player__caption .word[data-spoken] {
+  color: var(--film-text);
+}
+
+/* The bar sits over the foot of the stage; captions stand above it. */
+.film[data-bar='true'] .film-captions {
+  bottom: calc(var(--film-bar) + 4.5rem);
+}
+
+/* The poster carries its own words until the film starts. */
+.film[data-player='idle'] .film-captions {
+  visibility: hidden;
+}
+
+.film[data-captions='off'] .film-captions,
+.film[data-captions='off'] .film-player__caption {
+  display: none;
+}
+
+/* -------------------------------------------------------------- player */
+
+.film-dock {
+  position: sticky;
+  bottom: 0;
+  z-index: 8;
+  height: 0;
+}
+
+.film-player {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  display: grid;
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  gap: 0.5rem;
+  padding: 1.75rem max(1rem, 3vw) calc(0.625rem + env(safe-area-inset-bottom));
+  background: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--film-ink) 96%, transparent),
+    color-mix(in oklab, var(--film-ink) 80%, transparent) 65%,
+    transparent
+  );
+  color: var(--film-text);
+  font-size: 0.875rem;
+}
+
+.film-player[hidden] {
+  display: none;
+}
+
+/* Over text in Read mode the bar needs a solid ground. */
+.film[data-mode='read'] .film-player {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule);
+  background: var(--film-ink);
+}
+
+.film-player__row {
+  display: flex;
+  gap: 0.375rem;
+  align-items: center;
+}
+
+.film-player__play {
+  min-width: 6.75rem;
+  justify-content: center;
+}
+
+.film-player__play[data-waiting] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.film-icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--film-text);
+  cursor: pointer;
+}
+
+.film-icon:hover,
+.film-icon[aria-pressed='true'] {
+  color: var(--film-hi);
+  background: var(--sunken);
+}
+
+.film-player__track {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 6rem;
+  align-items: center;
+  height: 2.25rem;
+  margin-inline: 0.375rem;
+}
+
+.film-player__track input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+}
+
+.film-player__track input::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--tone) var(--played),
+    var(--rule-strong) var(--played)
+  );
+}
+
+.film-player__track input::-webkit-slider-thumb {
+  width: 1rem;
+  height: 1rem;
+  margin-top: calc(2px - 0.5rem);
+  border-radius: 50%;
+  background: var(--tone);
+  appearance: none;
+}
+
+.film-player__track input::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--rule-strong);
+}
+
+.film-player__track input::-moz-range-progress {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--tone);
+}
+
+.film-player__track input::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--tone);
+}
+
+.film-player__ticks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.film-player__ticks i {
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  height: 9px;
+  margin: -4.5px 0 0 -1px;
+  background: color-mix(in oklab, var(--ink) 45%, transparent);
+}
+
+.film-player__time {
+  flex: none;
+  min-width: 5.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--film-muted);
+  white-space: nowrap;
+}
+
+.film-player__chapters {
+  position: relative;
+  flex: none;
+}
+
+.film-player__chapters summary {
+  list-style: none;
+}
+
+.film-player__chapters summary::-webkit-details-marker {
+  display: none;
+}
+
+.film-player__chapters ol {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.5rem);
+  min-width: 17rem;
+  max-height: 60svh;
+  margin: 0;
+  padding: 0.375rem;
+  overflow: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--film-shadow);
+  list-style: none;
+}
+
+.film-player__chapters button {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  width: 100%;
+  padding: 0.5rem 0.625rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--film-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.film-player__chapters button:hover,
+.film-player__chapters button[aria-current='step'] {
+  background: var(--tone-soft);
+  color: var(--brass-ink);
+}
+
+.film-player__chapters .film-number {
+  display: inline;
+  margin: 0;
+}
+
+.film-player__explore {
+  flex: none;
+  margin-left: 0.25rem;
+}
+
+.film-player__guess {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--film-hi);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/* The caption line belongs to Read mode's stepped stills; Watch mode captions on the stage. */
+.film-player__caption {
+  display: flex;
+  justify-content: center;
+}
+
+.film[data-mode='watch'] .film-player__caption,
+.film[data-mode='read']:not([data-player='playing'], [data-player='paused'], [data-player='guess'])
+  .film-player__caption {
+  display: none;
+}
+
+.film-captions .word[data-spoken] {
+  color: var(--film-text);
+}
+
+/* ------------------------------------------------------------ chapters */
+
+.film-chapter {
+  position: relative;
+}
+
+.film-panel h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  line-height: 1.15;
+  color: var(--film-text);
+}
+
+.film-number {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--brass-ink);
+}
+
+.film-transcript p {
+  max-width: 40rem;
+  margin: 0 0 0.75rem;
+  color: var(--film-text);
+  line-height: 1.6;
+}
+
+/* Watch: the stage holds still and each chapter is a run of scroll over it. */
+.film[data-mode='watch'] .film-stage {
+  position: sticky;
+  top: 0;
+}
+
+.film[data-mode='watch'] .film-chapters {
+  position: relative;
+  z-index: 6;
+  margin-top: -100svh;
+  pointer-events: none;
+}
+
+.film[data-mode='watch'] .film-chapter {
+  /*
+   * The chapter runs on under the next one, so its card stays pinned through
+   * the rest frame instead of riding up over the scale; the negative margin
+   * keeps the scroll length the timeline uses.
+   */
+  --panel-hold: 30svh;
+  height: calc(var(--scroll) * 100svh + var(--panel-hold));
+  margin-bottom: calc(-1 * var(--panel-hold));
+  /* A chapter's card arrives after the previous rest frame has held still. */
+  padding-top: calc(var(--panel-top, 16svh) + 60svh);
+}
+
+/* The last card stays up to the end of the film, over the tail. */
+.film[data-mode='watch'] .film-chapter:last-of-type {
+  --panel-hold: 100svh;
+}
+
+.film[data-mode='watch'] .film-tail {
+  height: 100svh;
+}
+
+.film[data-mode='watch'] .film-panel {
+  position: sticky;
+  top: max(var(--panel-top, 16svh), calc(var(--film-bar) + 3.5rem));
+  width: min(26rem, calc(100% - 2rem));
+  margin-left: max(1rem, 4vw);
+  padding: 1.125rem 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-xl);
+  background: var(--film-card);
+  box-shadow: var(--film-shadow);
+  pointer-events: auto;
+}
+
+.film[data-mode='watch'] .film-chapter[data-panel='centre'] .film-panel {
+  width: min(36rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.film[data-mode='watch'] .film-chapter#one-year .film-panel {
+  visibility: hidden;
+}
+
+.film[data-mode='watch'] .film-read {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* A keyboard reader who tabs into a chapter's still and words sees them. */
+.film[data-mode='watch'] .film-read:focus-within {
+  position: fixed;
+  inset-inline: 1rem;
+  bottom: calc(var(--film-bar) + 1rem);
+  z-index: 8;
+  width: auto;
+  max-width: 48rem;
+  height: auto;
+  max-height: 70svh;
+  margin-inline: auto;
+  overflow: auto;
+  clip-path: none;
+  padding: 1.125rem 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  white-space: normal;
+  pointer-events: auto;
+}
+
+/* Read: the poster, then each chapter's still and words on the page. */
+.film[data-mode='read'] .film-bar,
+.film[data-mode='read'] .film-canvas,
+.film[data-mode='read'] .film-captions,
+.film[data-mode='read'] .film-key,
+.film[data-mode='read'] .film-scale,
+.film[data-mode='read'] .film-overlay,
+.film[data-mode='read'] .film-tail,
+.film[data-mode='read'] .film-watch-only {
+  display: none;
+}
+
+.film[data-mode='read'] .film-chapters {
+  width: min(var(--container-ledger), calc(100% - 2rem));
+  margin-inline: auto;
+  padding-block: 2rem 4rem;
+}
+
+.film[data-mode='read'] .film-chapter {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 3rem;
+  border-top: 1px solid var(--rule);
+}
+
+@media (min-width: 64rem) {
+  .film[data-mode='read'] .film-chapter {
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+    column-gap: 3rem;
+  }
+
+  .film[data-mode='read'] .film-read {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+/* Stills cross-fade in as they reach the screen (120 ms, so reduced motion keeps them). */
+.film[data-mode='read'] .film-still {
+  transition: opacity var(--dur-fade) linear;
+}
+
+.film[data-reveal='true'] .film-still[data-seen='false'] {
+  opacity: 0;
+}
+
+.film-still {
+  margin: 0;
+}
+
+.film-still__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70svh;
+}
+
+.film-still__svg--map {
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.film-still__grain {
+  fill: var(--brass);
+}
+
+.film-still__figure {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 700;
+  fill: var(--ink);
+}
+
+.film-still__label {
+  font-size: 13px;
+  fill: var(--film-text);
+}
+
+.film-still__value {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  fill: var(--film-muted);
+}
+
+.film-still__title {
+  margin: 1rem 0 0.25rem;
+  font-size: 1rem;
+}
+
+.film-still__note,
+.film-still__caption {
+  margin: 0.5rem 0 0;
+  color: var(--film-muted);
+  font-size: 0.875rem;
+}
+
+.film-skyline {
+  fill: var(--brass);
+}
+
+.film-group--0 {
+  fill: var(--family-state-pension);
+}
+
+.film-group--1 {
+  fill: var(--family-personal-independence);
+}
+
+.film-group--2 {
+  fill: var(--family-universal-credit);
+}
+
+.film-swatch {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.4rem;
+  border-radius: 1px;
+  vertical-align: -0.05rem;
+}
+
+.film-table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.film-table th,
+.film-table td {
+  padding: 0.35rem 0.5rem 0.35rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  font-weight: 400;
+}
+
+.film-table td {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.film-table thead th {
+  color: var(--film-muted);
+  font-size: 0.75rem;
+}
+
+.film-legend {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--film-muted);
+}
+
+.film-legend__bins {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.875rem;
+  margin: 0.375rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ------------------------------------------------------- guess tape */
+
+.film-tape {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.film-tape__track {
+  position: relative;
+  display: flex;
+  height: 3.25rem;
+  border-radius: var(--radius-md);
+  overflow: visible;
+  touch-action: none;
+}
+
+.film-tape__segment {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--brand-ink);
+}
+
+.film-tape__segment--0 {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  background: var(--family-state-pension);
+}
+
+.film-tape__segment--1 {
+  background: var(--family-personal-independence);
+}
+
+.film-tape__segment--2 {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--family-universal-credit);
+}
+
+.film-tape__divider {
+  position: absolute;
+  top: -0.375rem;
+  bottom: -0.375rem;
+  z-index: 1;
+  width: 1.5rem;
+  margin-left: -0.75rem;
+  cursor: ew-resize;
+}
+
+.film-tape__divider::after {
+  content: '';
+  position: absolute;
+  inset: 0 calc(50% - 2px);
+  border-radius: 2px;
+  background: var(--ink);
+  box-shadow: 0 0 0 1.5px var(--surface);
+}
+
+.film-tape__handles {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.film-tape__handle {
+  display: grid;
+  gap: 0.125rem;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-md);
+  color: var(--film-text);
+  font-size: 0.8125rem;
+}
+
+.film-tape__handle:focus-within,
+.film-tape__handle:hover {
+  border-color: var(--tone);
+}
+
+.film-tape__handle input {
+  width: 100%;
+  accent-color: var(--tone);
+}
+
+.film-note {
+  margin: 0.375rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--film-muted);
+}
+
+.film-tape__handle strong {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.film-tape[data-locked='true'] .film-tape__divider {
+  cursor: default;
+}
+
+.film-ghost {
+  position: absolute;
+  top: 0;
+  height: 0;
+  border: 2px dashed var(--ink);
+  border-radius: var(--radius-xs);
+  opacity: 0;
+}
+
+.film-ghost span {
+  position: absolute;
+  bottom: calc(100% + 0.25rem);
+  left: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+.film-axis {
+  position: absolute;
+  font-size: 0.8125rem;
+  color: var(--film-muted);
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.film-reveal {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+.film-readout {
+  display: grid;
+  gap: 0.125rem;
+  margin-top: 0.5rem;
+}
+
+.film-readout__value {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--film-text);
+}
+
+.film-readout__label {
+  font-size: 0.875rem;
+  color: var(--film-muted);
+}
+
+.film-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.film-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.film-form input {
+  flex: 1 1 10rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--film-text);
+  font: inherit;
+  text-transform: uppercase;
+}
+
+.film-landed {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule);
+}
+
+.film-landed dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.film-landed dd {
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+.film-transcript-full {
+  width: min(var(--container-ledger), calc(100% - 2rem));
+  margin-inline: auto;
+  padding-block: 2rem 4rem;
+}
+
+.film-transcript-full summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------- phones */
+
+@media (max-width: 40rem) {
+  .film[data-mode='watch'] .film-panel {
+    /* Below the grain key or the scale, which sit at the top on a phone. */
+    top: max(var(--panel-top, 16svh), calc(var(--film-bar) + 5.5rem));
+    width: calc(100% - 2rem);
+    margin-inline: 1rem;
+  }
+
+  .film-captions {
+    bottom: calc(var(--film-bar) + 0.5rem);
+  }
+
+  /* The bar takes two rows: the progress bar, then the buttons. */
+  .film[data-bar='true'] .film-captions {
+    bottom: calc(var(--film-bar) + 6.5rem);
+  }
+
+  /* While the film waits for the guess, Skip guess adds a third row. */
+  .film[data-bar='true'][data-player='guess'] .film-captions {
+    bottom: calc(var(--film-bar) + 9.75rem);
+  }
+
+  .film-player {
+    padding-inline: 0.75rem;
+  }
+
+  .film-player__row {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .film-player__track {
+    flex-basis: 100%;
+    order: -1;
+    height: 1.75rem;
+    margin-inline: 0;
+  }
+
+  .film-player__time {
+    display: none;
+  }
+
+  .film-player__play {
+    min-width: 0;
+  }
+
+  /* The list spans the bar, so it never runs off the screen's edge. */
+  .film-player__chapters {
+    position: static;
+  }
+
+  .film-player__chapters ol {
+    inset-inline: 0.75rem;
+    bottom: 100%;
+    min-width: 0;
+  }
+
+  .film-player__explore {
+    margin-left: auto;
+  }
+
+  .film-tape__handle {
+    padding: 0.375rem;
+  }
+
+  .film-tape__handle span {
+    font-size: 0.6875rem;
+    line-height: 1.2;
+  }
+
+  .film-scale {
+    right: auto;
+    left: 1rem;
+    justify-items: start;
+    font-size: 0.6875rem;
+    text-align: left;
+  }
+}

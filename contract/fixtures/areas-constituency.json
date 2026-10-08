@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 2,
+  "release": "2026-10-05.1",
+  "level": "constituency",
+  "boundarySet": "PCON24",
+  "areaOrderHash": "43d588a123b537d8",
+  "populationPeriod": "mid-2024",
+  "hexLayout": "odd-r",
+  "bounds": [
+    [-8.65, 49.8825],
+    [1.7637, 60.8454]
+  ],
+  "regions": [
+    {
+      "code": "E12000003",
+      "name": "Yorkshire and The Humber",
+      "nation": "england",
+      "bounds": [
+        [-2.5649, 53.3014],
+        [0.1418, 54.5622]
+      ]
+    },
+    {
+      "code": "S92000003",
+      "name": "Scotland",
+      "nation": "scotland",
+      "bounds": [
+        [-8.65, 54.6335],
+        [-0.7247, 60.8454]
+      ]
+    },
+    {
+      "code": "W92000004",
+      "name": "Wales",
+      "nation": "wales",
+      "bounds": [
+        [-5.6703, 51.3755],
+        [-2.65, 53.4355]
+      ]
+    }
+  ],
+  "areas": [
+    {
+      "code": "E14001074",
+      "name": "Barnsley North",
+      "slug": "barnsley-north",
+      "nation": "england",
+      "region": "E12000003",
+      "hex": { "q": 57, "r": -23 },
+      "centroid": [-1.45061, 53.57609],
+      "population": 107727
+    },
+    {
+      "code": "S14000021",
+      "name": "East Renfrewshire",
+      "slug": "east-renfrewshire",
+      "nation": "scotland",
+      "region": "S92000003",
+      "hex": { "q": 48, "r": -11 },
+      "centroid": [-4.36058, 55.74869],
+      "population": 99440
+    },
+    {
+      "code": "W07000081",
+      "name": "Aberafan Maesteg",
+      "slug": "aberafan-maesteg",
+      "nation": "wales",
+      "region": "W92000004",
+      "hex": { "q": 46, "r": -36 },
+      "centroid": [-3.70491, 51.5924],
+      "population": 92880
+    }
+  ]
+}

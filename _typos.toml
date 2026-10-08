@@ -1,0 +1,8 @@
+[default.extend-words]
+# ONS geography and statistics terms
+LSO = "LSO"
+LSOA = "LSOA"
+MYE = "MYE"
+Humber = "Humber"
+# Ordinal suffix (2nd, 22nd)
+nd = "nd"

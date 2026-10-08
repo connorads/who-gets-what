@@ -1,0 +1,27 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+.env
+.nitro
+.tanstack
+.wrangler
+.output
+.vinxi
+__unconfig*
+todos.json
+test-results
+playwright-report
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
+
+# data pipeline
+pipeline/build/
+pipeline/.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+public/data/

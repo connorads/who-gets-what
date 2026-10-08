@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "level": {
+      "type": "string",
+      "enum": [
+        "constituency",
+        "local-authority"
+      ]
+    },
+    "metric": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+    },
+    "denom": {
+      "type": "string",
+      "enum": [
+        "total",
+        "per-resident",
+        "per-aged-0-15",
+        "per-aged-16-64",
+        "per-aged-66-plus"
+      ]
+    },
+    "basis": {
+      "type": "string",
+      "enum": [
+        "real-gdp",
+        "real-cpi",
+        "nominal"
+      ]
+    },
+    "period": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}$"
+    },
+    "view": {
+      "type": "string",
+      "enum": [
+        "hex",
+        "map",
+        "swarm",
+        "rank"
+      ]
+    },
+    "sel": {
+      "type": "string",
+      "pattern": "^[ESW]\\d{8}$"
+    },
+    "vs": {
+      "type": "string",
+      "pattern": "^[ESW]\\d{8}$"
+    }
+  },
+  "additionalProperties": false
+}

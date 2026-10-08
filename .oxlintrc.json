@@ -1,0 +1,74 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "vitest", "react", "jsx-a11y"],
+  "categories": { "correctness": "error", "suspicious": "error", "perf": "error" },
+  "options": {
+    "typeAware": true,
+    "denyWarnings": true,
+    "reportUnusedDisableDirectives": "error"
+  },
+  "rules": {
+    "typescript/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": true,
+        "ts-nocheck": true,
+        "ts-check": false,
+        "ts-expect-error": "allow-with-description",
+        "minimumDescriptionLength": 10
+      }
+    ],
+    "unicorn/no-abusive-eslint-disable": "error",
+    "typescript/consistent-type-definitions": ["error", "interface"],
+    "typescript/consistent-type-assertions": ["error", { "assertionStyle": "never" }],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "import/no-cycle": "error",
+    "typescript/no-floating-promises": "error",
+    "typescript/no-misused-promises": "error",
+    "typescript/switch-exhaustiveness-check": "error",
+    "typescript/only-throw-error": "error",
+    "typescript/no-base-to-string": "error",
+    "typescript/restrict-template-expressions": "error",
+    "typescript/require-await": "error",
+    "typescript/prefer-readonly": "error",
+    "typescript/no-unsafe-argument": "error",
+    "typescript/no-unsafe-assignment": "error",
+    "typescript/no-unsafe-call": "error",
+    "typescript/no-unsafe-member-access": "error",
+    "typescript/no-unsafe-return": "error",
+    "no-eval": "error",
+    "no-new-func": "error",
+    "no-script-url": "error",
+    "no-proto": "error",
+    "no-prototype-builtins": "error",
+    "no-extend-native": "error",
+    "no-control-regex": "error",
+    // tsconfig `jsx: react-jsx` selects the automatic runtime, so JSX needs no React import
+    "react/react-in-jsx-scope": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.{ts,tsx}"],
+      "rules": {
+        "vitest/expect-expect": "error",
+        "vitest/valid-expect": "error",
+        "vitest/no-standalone-expect": "error",
+        "vitest/no-focused-tests": "error",
+        "vitest/no-disabled-tests": "error",
+        "vitest/require-to-throw-message": "error",
+        "typescript/consistent-type-assertions": "off",
+        "typescript/no-unsafe-assignment": "off"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "coverage/**",
+    "src/routeTree.gen.ts",
+    "worker-configuration.d.ts",
+    ".hk-hooks/**",
+    ".agents/**",
+    ".claude/**"
+  ]
+}

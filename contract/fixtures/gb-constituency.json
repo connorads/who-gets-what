@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 2,
+  "release": "2026-10-05.1",
+  "level": "constituency",
+  "series": [
+    {
+      "metric": "spend-pensioner",
+      "denominator": "total",
+      "periodKind": "fiscal-year",
+      "periods": ["2023-24", "2024-25"],
+      "values": [140000000000, 150000000000],
+      "rankOf": [3, 3]
+    },
+    {
+      "metric": "spend-pensioner",
+      "denominator": "per-aged-66-plus",
+      "periodKind": "fiscal-year",
+      "periods": ["2023-24", "2024-25"],
+      "values": [11000, 11500],
+      "rankOf": [3, 3]
+    }
+  ]
+}

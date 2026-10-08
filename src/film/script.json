@@ -1,0 +1,201 @@
+{
+  "title": "Where benefit money goes",
+  "release": "2026-10-07.2",
+  "period": "2024-25",
+  "priceBase": "2026-27",
+  "groups": [
+    {
+      "id": "pensioners",
+      "label": "Pensioners",
+      "families": ["state-pension", "pension-credit", "attendance-allowance", "winter-fuel"]
+    },
+    {
+      "id": "disability-carers",
+      "label": "Disability and carers",
+      "families": ["personal-independence", "disability-living", "carers"]
+    },
+    {
+      "id": "working-age-housing",
+      "label": "Working-age and housing",
+      "families": [
+        "universal-credit",
+        "housing-benefit",
+        "employment-support",
+        "jobseekers",
+        "income-support",
+        "other"
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "the-pour",
+      "title": "One year of benefits",
+      "scroll": 3,
+      "still": "One year of benefit spending in Great Britain, £299 billion, shown as a pile of dots.",
+      "sfx": ["pour", "settle"],
+      "beats": [
+        {
+          "id": "pour-1",
+          "narration": "In 2024-25, people in Great Britain received £299 billion in benefits from the Department for Work and Pensions and Social Security Scotland.",
+          "checks": [{ "figure": "total-real-billions", "value": 299 }]
+        },
+        {
+          "id": "pour-2",
+          "narration": "That is in 2026-27 prices, to allow for inflation."
+        },
+        {
+          "id": "pour-3",
+          "narration": "Scroll at any time to go at your own pace."
+        }
+      ]
+    },
+    {
+      "id": "your-split",
+      "title": "Your guess",
+      "scroll": 3,
+      "still": "A bar split into three parts: pensioners 51.5%, working-age and housing 33.6%, disability and carers 14.9%.",
+      "sfx": ["tick", "lock", "reveal"],
+      "beats": [
+        { "id": "split-1", "narration": "First, a question." },
+        {
+          "id": "split-2",
+          "narration": "How do you think it splits between pensioners, disabled people and carers, and people of working age, including help with rent?"
+        },
+        {
+          "id": "split-3",
+          "narration": "Drag the handles to make your guess. It stays on your device."
+        },
+        {
+          "id": "split-4",
+          "narration": "[calm, warm] Now it's your turn. Have a guess, then lock it in to carry on."
+        }
+      ]
+    },
+    {
+      "id": "the-wall",
+      "title": "Benefit by benefit",
+      "scroll": 5,
+      "still": "The dots sorted into columns, one for each benefit. The State Pension is the largest.",
+      "sfx": ["stack-loop", "pan", "settle"],
+      "beats": [
+        {
+          "id": "wall-1",
+          "narration": "Here is the same money, sorted by benefit."
+        },
+        {
+          "id": "wall-2",
+          "narration": "The State Pension is the largest, at £138 billion.",
+          "checks": [{ "figure": "family-real-billions:state-pension", "value": 138 }]
+        },
+        {
+          "id": "wall-3",
+          "narration": "Next, Personal Independence Payment and its Scottish version come to £30 billion. Universal Credit comes to £70 billion.",
+          "checks": [
+            { "figure": "family-real-billions:personal-independence", "value": 30 },
+            { "figure": "family-real-billions:universal-credit", "value": 70 }
+          ]
+        },
+        {
+          "id": "wall-4",
+          "narration": "Benefits for pensioners make up 51.5% of the total, just over half.",
+          "checks": [{ "figure": "group-share-percent:pensioners", "value": 51.5 }]
+        }
+      ]
+    },
+    {
+      "id": "the-rain",
+      "title": "Every constituency",
+      "scroll": 4,
+      "still": "A map of every constituency in Great Britain, coloured by benefit spending per resident.",
+      "sfx": ["rain", "morph"],
+      "beats": [
+        {
+          "id": "rain-1",
+          "narration": "Now each dot moves to the constituency where the person who received it lives."
+        },
+        {
+          "id": "rain-2",
+          "narration": "There are 632 constituencies, each with its own MP. On this map, large rural areas take up the most space.",
+          "checks": [{ "figure": "constituency-count", "value": 632 }]
+        },
+        {
+          "id": "rain-3",
+          "narration": "You can also show every constituency at the same size, which makes city areas easier to see."
+        }
+      ]
+    },
+    {
+      "id": "two-skylines",
+      "title": "Spending per person",
+      "scroll": 4,
+      "still": "Two 3D maps of the same constituencies. On one, height shows pensioner benefits per person aged 66 and over. On the other, height shows working-age benefits per person aged 16 to 64.",
+      "sfx": ["tilt", "rise"],
+      "beats": [
+        {
+          "id": "skyline-1",
+          "narration": "Now height shows spending per person, measured in two ways."
+        },
+        {
+          "id": "skyline-pensioner",
+          "skyline": "pensioner",
+          "narration": "This one shows pensioner benefits for each person aged 66 and over."
+        },
+        {
+          "id": "skyline-working-age",
+          "skyline": "working-age",
+          "narration": "This one shows working-age benefits for each person aged 16 to 64."
+        },
+        {
+          "id": "skyline-4",
+          "narration": "None of the 10 highest areas on one map is in the top 10 on the other.",
+          "checks": [{ "figure": "skyline-top10-overlap", "value": 0 }]
+        }
+      ]
+    },
+    {
+      "id": "north-south-or-age",
+      "title": "North and south, or old and young",
+      "scroll": 4,
+      "still": "Each constituency as a dot, placed by the share of residents aged 66 and over and coloured by benefit spending per resident.",
+      "sfx": ["morph"],
+      "beats": [
+        {
+          "id": "swarm-1",
+          "narration": "Here each constituency is a dot. Its colour shows benefit spending per resident."
+        },
+        {
+          "id": "swarm-2",
+          "narration": "Sorted from south to north, the colours are mixed. The link scores 0.24, where 1 would be a perfect match.",
+          "checks": [{ "figure": "correlation:latitude", "value": 0.24 }]
+        },
+        {
+          "id": "swarm-3",
+          "narration": "Sorted by the share of residents aged 66 and over, the link is stronger, at 0.44.",
+          "checks": [{ "figure": "correlation:aged-66-plus", "value": 0.44 }]
+        },
+        {
+          "id": "swarm-4",
+          "narration": "[calm, thoughtful] So spending per resident is linked more to age than to how far north an area is. That is why we compare each benefit with the age group it is for."
+        }
+      ]
+    },
+    {
+      "id": "the-landing",
+      "title": "Your area",
+      "scroll": 2,
+      "still": "A box to enter your postcode, above the map of constituencies.",
+      "sfx": ["land", "open"],
+      "beats": [
+        {
+          "id": "landing-1",
+          "narration": "Each of these areas has its own page of figures."
+        },
+        {
+          "id": "landing-2",
+          "narration": "[calm, warm] Enter your postcode to see how your area compares."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 2,
+  "release": "2026-10-05.1",
+  "createdAt": "2026-10-05T12:00:00Z",
+  "pipelineCommit": "0123456789abcdef0123456789abcdef01234567",
+  "priceBase": "2026-27",
+  "levels": {
+    "constituency": {
+      "boundarySet": "PCON24",
+      "areaCount": 3,
+      "areaOrderHash": "43d588a123b537d8"
+    },
+    "local-authority": {
+      "boundarySet": "LAD23",
+      "areaCount": 0,
+      "areaOrderHash": "e3b0c44298fc1c14"
+    }
+  },
+  "coverage": {
+    "nations": ["england", "wales", "scotland"],
+    "notCovered": [
+      {
+        "area": "Northern Ireland",
+        "reason": "Benefits are administered separately by the Department for Communities."
+      }
+    ]
+  },
+  "files": {
+    "meta/catalogue.json": {
+      "bytes": 1234,
+      "sha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
+    }
+  }
+}

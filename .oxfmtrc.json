@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "semi": false,
+  "singleQuote": true,
+  "ignorePatterns": [
+    "*.md",
+    "dist/**",
+    "coverage/**",
+    "pnpm-lock.yaml",
+    "src/routeTree.gen.ts",
+    "contract/schema/**",
+    "worker-configuration.d.ts",
+    ".agents/**",
+    ".claude/**",
+    ".hk-hooks/**"
+  ]
+}

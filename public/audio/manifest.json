@@ -1,0 +1,1530 @@
+{
+  "description": "Film audio: narration per beat, sound cues and score. Built by `pnpm run audio:build`; see docs/film/audio.md.",
+  "voice": {
+    "id": "Xb7hH8MSUJpSbSDYk0k2",
+    "name": "Alice - Clear, Engaging Educator",
+    "modelId": "eleven_v4"
+  },
+  "items": [
+    {
+      "id": "pour-1",
+      "kind": "narration",
+      "chapter": "the-pour",
+      "file": "/audio/narration/pour-1.webm",
+      "fallback": "/audio/narration/pour-1.m4a",
+      "durationMs": 11448,
+      "bytes": {
+        "webm": 61810,
+        "m4a": 84176
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.3,
+        "truePeakDbtp": -2.1
+      },
+      "loop": false,
+      "text": "In 2024-25, people in Great Britain received £299 billion in benefits from the Department for Work and Pensions and Social Security Scotland.",
+      "captions": "/audio/narration/pour-1.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] In 2024-25, people in Great Britain received £299 billion in benefits from the Department for Work and Pensions and Social Security Scotland.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 5201,
+          "stitchedTo": {
+            "previous": null,
+            "next": "pour-2"
+          }
+        },
+        "credits": 22
+      }
+    },
+    {
+      "id": "pour-2",
+      "kind": "narration",
+      "chapter": "the-pour",
+      "file": "/audio/narration/pour-2.webm",
+      "fallback": "/audio/narration/pour-2.m4a",
+      "durationMs": 5288,
+      "bytes": {
+        "webm": 28039,
+        "m4a": 39263
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.6,
+        "truePeakDbtp": -2.2
+      },
+      "loop": false,
+      "text": "That is in 2026-27 prices, to allow for inflation.",
+      "captions": "/audio/narration/pour-2.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] That is in 2026-27 prices, to allow for inflation.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4102,
+          "stitchedTo": {
+            "previous": "pour-1",
+            "next": "pour-3"
+          }
+        },
+        "credits": 11
+      }
+    },
+    {
+      "id": "pour-3",
+      "kind": "narration",
+      "chapter": "the-pour",
+      "file": "/audio/narration/pour-3.webm",
+      "fallback": "/audio/narration/pour-3.m4a",
+      "durationMs": 3608,
+      "bytes": {
+        "webm": 19133,
+        "m4a": 27169
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.5,
+        "truePeakDbtp": -2.1
+      },
+      "loop": false,
+      "text": "Scroll at any time to go at your own pace.",
+      "captions": "/audio/narration/pour-3.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Scroll at any time to go at your own pace.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4103,
+          "stitchedTo": {
+            "previous": "pour-2",
+            "next": "split-1"
+          }
+        },
+        "credits": 10
+      }
+    },
+    {
+      "id": "split-1",
+      "kind": "narration",
+      "chapter": "your-split",
+      "file": "/audio/narration/split-1.webm",
+      "fallback": "/audio/narration/split-1.m4a",
+      "durationMs": 2168,
+      "bytes": {
+        "webm": 11060,
+        "m4a": 16780
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.7,
+        "truePeakDbtp": -2.3
+      },
+      "loop": false,
+      "text": "First, a question.",
+      "captions": "/audio/narration/split-1.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] First, a question.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4104,
+          "stitchedTo": {
+            "previous": "pour-3",
+            "next": "split-2"
+          }
+        },
+        "credits": 7
+      }
+    },
+    {
+      "id": "split-2",
+      "kind": "narration",
+      "chapter": "your-split",
+      "file": "/audio/narration/split-2.webm",
+      "fallback": "/audio/narration/split-2.m4a",
+      "durationMs": 8328,
+      "bytes": {
+        "webm": 45237,
+        "m4a": 61667
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.3,
+        "truePeakDbtp": -2.1
+      },
+      "loop": false,
+      "text": "How do you think it splits between pensioners, disabled people and carers, and people of working age, including help with rent?",
+      "captions": "/audio/narration/split-2.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] How do you think it splits between pensioners, disabled people and carers, and people of working age, including help with rent?",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4105,
+          "stitchedTo": {
+            "previous": "split-1",
+            "next": "split-3"
+          }
+        },
+        "credits": 20
+      }
+    },
+    {
+      "id": "split-3",
+      "kind": "narration",
+      "chapter": "your-split",
+      "file": "/audio/narration/split-3.webm",
+      "fallback": "/audio/narration/split-3.m4a",
+      "durationMs": 4008,
+      "bytes": {
+        "webm": 21941,
+        "m4a": 30090
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.4,
+        "truePeakDbtp": -2
+      },
+      "loop": false,
+      "text": "Drag the handles to make your guess. It stays on your device.",
+      "captions": "/audio/narration/split-3.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Drag the handles to make your guess. It stays on your device.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4106,
+          "stitchedTo": {
+            "previous": "split-2",
+            "next": "wall-1"
+          }
+        },
+        "credits": 12
+      }
+    },
+    {
+      "id": "split-4",
+      "kind": "narration",
+      "chapter": "your-split",
+      "file": "/audio/narration/split-4.webm",
+      "fallback": "/audio/narration/split-4.m4a",
+      "durationMs": 4488,
+      "bytes": {
+        "webm": 23701,
+        "m4a": 33319
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.4,
+        "truePeakDbtp": -2.1
+      },
+      "loop": false,
+      "text": "Now it's your turn. Have a guess, then lock it in to carry on.",
+      "captions": "/audio/narration/split-4.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, warm] Now it's your turn. Have a guess, then lock it in to carry on.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4124,
+          "stitchedTo": {
+            "previous": null,
+            "next": null
+          }
+        },
+        "credits": 9
+      }
+    },
+    {
+      "id": "wall-1",
+      "kind": "narration",
+      "chapter": "the-wall",
+      "file": "/audio/narration/wall-1.webm",
+      "fallback": "/audio/narration/wall-1.m4a",
+      "durationMs": 3288,
+      "bytes": {
+        "webm": 17473,
+        "m4a": 24946
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.2,
+        "truePeakDbtp": -2.3
+      },
+      "loop": false,
+      "text": "Here is the same money, sorted by benefit.",
+      "captions": "/audio/narration/wall-1.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Here is the same money, sorted by benefit.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4107,
+          "stitchedTo": {
+            "previous": "split-3",
+            "next": "wall-2"
+          }
+        },
+        "credits": 10
+      }
+    },
+    {
+      "id": "wall-2",
+      "kind": "narration",
+      "chapter": "the-wall",
+      "file": "/audio/narration/wall-2.webm",
+      "fallback": "/audio/narration/wall-2.m4a",
+      "durationMs": 5048,
+      "bytes": {
+        "webm": 27474,
+        "m4a": 37682
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.4,
+        "truePeakDbtp": -2.2
+      },
+      "loop": false,
+      "text": "The State Pension is the largest, at £138 billion.",
+      "captions": "/audio/narration/wall-2.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] The State Pension is the largest, at £138 billion.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4108,
+          "stitchedTo": {
+            "previous": "wall-1",
+            "next": "wall-3"
+          }
+        },
+        "credits": 11
+      }
+    },
+    {
+      "id": "wall-3",
+      "kind": "narration",
+      "chapter": "the-wall",
+      "file": "/audio/narration/wall-3.webm",
+      "fallback": "/audio/narration/wall-3.m4a",
+      "durationMs": 10328,
+      "bytes": {
+        "webm": 56943,
+        "m4a": 75558
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.4,
+        "truePeakDbtp": -2
+      },
+      "loop": false,
+      "text": "Next, Personal Independence Payment and its Scottish version come to £30 billion. Universal Credit comes to £70 billion.",
+      "captions": "/audio/narration/wall-3.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Next, Personal Independence Payment and its Scottish version come to £30 billion. Universal Credit comes to £70 billion.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4109,
+          "stitchedTo": {
+            "previous": "wall-2",
+            "next": "wall-4"
+          }
+        },
+        "credits": 19
+      }
+    },
+    {
+      "id": "wall-4",
+      "kind": "narration",
+      "chapter": "the-wall",
+      "file": "/audio/narration/wall-4.webm",
+      "fallback": "/audio/narration/wall-4.m4a",
+      "durationMs": 6408,
+      "bytes": {
+        "webm": 34049,
+        "m4a": 47481
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.4,
+        "truePeakDbtp": -2
+      },
+      "loop": false,
+      "text": "Benefits for pensioners make up 51.5% of the total, just over half.",
+      "captions": "/audio/narration/wall-4.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Benefits for pensioners make up 51.5% of the total, just over half.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4110,
+          "stitchedTo": {
+            "previous": "wall-3",
+            "next": "rain-1"
+          }
+        },
+        "credits": 13
+      }
+    },
+    {
+      "id": "rain-1",
+      "kind": "narration",
+      "chapter": "the-rain",
+      "file": "/audio/narration/rain-1.webm",
+      "fallback": "/audio/narration/rain-1.m4a",
+      "durationMs": 5208,
+      "bytes": {
+        "webm": 27882,
+        "m4a": 38711
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.5,
+        "truePeakDbtp": -2.3
+      },
+      "loop": false,
+      "text": "Now each dot moves to the constituency where the person who received it lives.",
+      "captions": "/audio/narration/rain-1.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Now each dot moves to the constituency where the person who received it lives.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4111,
+          "stitchedTo": {
+            "previous": "wall-4",
+            "next": "rain-2"
+          }
+        },
+        "credits": 14
+      }
+    },
+    {
+      "id": "rain-2",
+      "kind": "narration",
+      "chapter": "the-rain",
+      "file": "/audio/narration/rain-2.webm",
+      "fallback": "/audio/narration/rain-2.m4a",
+      "durationMs": 9688,
+      "bytes": {
+        "webm": 51678,
+        "m4a": 71001
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.5,
+        "truePeakDbtp": -2.1
+      },
+      "loop": false,
+      "text": "There are 632 constituencies, each with its own MP. On this map, large rural areas take up the most space.",
+      "captions": "/audio/narration/rain-2.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] There are 632 constituencies, each with its own MP. On this map, large rural areas take up the most space.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4112,
+          "stitchedTo": {
+            "previous": "rain-1",
+            "next": "rain-3"
+          }
+        },
+        "credits": 18
+      }
+    },
+    {
+      "id": "rain-3",
+      "kind": "narration",
+      "chapter": "the-rain",
+      "file": "/audio/narration/rain-3.webm",
+      "fallback": "/audio/narration/rain-3.m4a",
+      "durationMs": 6808,
+      "bytes": {
+        "webm": 36008,
+        "m4a": 50239
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.5,
+        "truePeakDbtp": -2.1
+      },
+      "loop": false,
+      "text": "You can also show every constituency at the same size, which makes city areas easier to see.",
+      "captions": "/audio/narration/rain-3.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] You can also show every constituency at the same size, which makes city areas easier to see.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 5112,
+          "stitchedTo": {
+            "previous": "rain-2",
+            "next": "skyline-1"
+          }
+        },
+        "credits": 16
+      }
+    },
+    {
+      "id": "skyline-1",
+      "kind": "narration",
+      "chapter": "two-skylines",
+      "file": "/audio/narration/skyline-1.webm",
+      "fallback": "/audio/narration/skyline-1.m4a",
+      "durationMs": 4488,
+      "bytes": {
+        "webm": 23860,
+        "m4a": 33505
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.4,
+        "truePeakDbtp": -1.8
+      },
+      "loop": false,
+      "text": "Now height shows spending per person, measured in two ways.",
+      "captions": "/audio/narration/skyline-1.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Now height shows spending per person, measured in two ways.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4114,
+          "stitchedTo": {
+            "previous": "rain-3",
+            "next": null
+          }
+        },
+        "credits": 12
+      }
+    },
+    {
+      "id": "skyline-pensioner",
+      "kind": "narration",
+      "chapter": "two-skylines",
+      "file": "/audio/narration/skyline-pensioner.webm",
+      "fallback": "/audio/narration/skyline-pensioner.m4a",
+      "durationMs": 5608,
+      "bytes": {
+        "webm": 29950,
+        "m4a": 41698
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.5,
+        "truePeakDbtp": -2.2
+      },
+      "loop": false,
+      "text": "This one shows pensioner benefits for each person aged 66 and over.",
+      "captions": "/audio/narration/skyline-pensioner.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] This one shows pensioner benefits for each person aged 66 and over.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4115,
+          "stitchedTo": {
+            "previous": "skyline-1",
+            "next": "skyline-4"
+          }
+        },
+        "credits": 13
+      }
+    },
+    {
+      "id": "skyline-working-age",
+      "kind": "narration",
+      "chapter": "two-skylines",
+      "file": "/audio/narration/skyline-working-age.webm",
+      "fallback": "/audio/narration/skyline-working-age.m4a",
+      "durationMs": 5608,
+      "bytes": {
+        "webm": 29995,
+        "m4a": 41541
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.4,
+        "truePeakDbtp": -2.2
+      },
+      "loop": false,
+      "text": "This one shows working-age benefits for each person aged 16 to 64.",
+      "captions": "/audio/narration/skyline-working-age.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] This one shows working-age benefits for each person aged 16 to 64.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4116,
+          "stitchedTo": {
+            "previous": null,
+            "next": "skyline-4"
+          }
+        },
+        "credits": 13
+      }
+    },
+    {
+      "id": "skyline-4",
+      "kind": "narration",
+      "chapter": "two-skylines",
+      "file": "/audio/narration/skyline-4.webm",
+      "fallback": "/audio/narration/skyline-4.m4a",
+      "durationMs": 4968,
+      "bytes": {
+        "webm": 26821,
+        "m4a": 37036
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.4,
+        "truePeakDbtp": -2.1
+      },
+      "loop": false,
+      "text": "None of the 10 highest areas on one map is in the top 10 on the other.",
+      "captions": "/audio/narration/skyline-4.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] None of the 10 highest areas on one map is in the top 10 on the other.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4117,
+          "stitchedTo": {
+            "previous": null,
+            "next": null
+          }
+        },
+        "credits": 13
+      }
+    },
+    {
+      "id": "swarm-1",
+      "kind": "narration",
+      "chapter": "north-south-or-age",
+      "file": "/audio/narration/swarm-1.webm",
+      "fallback": "/audio/narration/swarm-1.m4a",
+      "durationMs": 6168,
+      "bytes": {
+        "webm": 33056,
+        "m4a": 45612
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.5,
+        "truePeakDbtp": -2.4
+      },
+      "loop": false,
+      "text": "Here each constituency is a dot. Its colour shows benefit spending per resident.",
+      "captions": "/audio/narration/swarm-1.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Here each constituency is a dot. Its colour shows benefit spending per resident.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4118,
+          "stitchedTo": {
+            "previous": "skyline-4",
+            "next": null
+          }
+        },
+        "credits": 14
+      }
+    },
+    {
+      "id": "swarm-2",
+      "kind": "narration",
+      "chapter": "north-south-or-age",
+      "file": "/audio/narration/swarm-2.webm",
+      "fallback": "/audio/narration/swarm-2.m4a",
+      "durationMs": 8488,
+      "bytes": {
+        "webm": 46344,
+        "m4a": 62312
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.3,
+        "truePeakDbtp": -2.2
+      },
+      "loop": false,
+      "text": "Sorted from south to north, the colours are mixed. The link scores 0.24, where 1 would be a perfect match.",
+      "captions": "/audio/narration/swarm-2.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Sorted from south to north, the colours are mixed. The link scores 0.24, where 1 would be a perfect match.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4119,
+          "stitchedTo": {
+            "previous": "swarm-1",
+            "next": "swarm-3"
+          }
+        },
+        "credits": 18
+      }
+    },
+    {
+      "id": "swarm-3",
+      "kind": "narration",
+      "chapter": "north-south-or-age",
+      "file": "/audio/narration/swarm-3.webm",
+      "fallback": "/audio/narration/swarm-3.m4a",
+      "durationMs": 6968,
+      "bytes": {
+        "webm": 37764,
+        "m4a": 51530
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.6,
+        "truePeakDbtp": -2.2
+      },
+      "loop": false,
+      "text": "Sorted by the share of residents aged 66 and over, the link is stronger, at 0.44.",
+      "captions": "/audio/narration/swarm-3.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Sorted by the share of residents aged 66 and over, the link is stronger, at 0.44.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4120,
+          "stitchedTo": {
+            "previous": "swarm-2",
+            "next": "swarm-4"
+          }
+        },
+        "credits": 15
+      }
+    },
+    {
+      "id": "swarm-4",
+      "kind": "narration",
+      "chapter": "north-south-or-age",
+      "file": "/audio/narration/swarm-4.webm",
+      "fallback": "/audio/narration/swarm-4.m4a",
+      "durationMs": 10008,
+      "bytes": {
+        "webm": 54626,
+        "m4a": 73880
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.4,
+        "truePeakDbtp": -2.1
+      },
+      "loop": false,
+      "text": "So spending per resident is linked more to age than to how far north an area is. That is why we compare each benefit with the age group it is for.",
+      "captions": "/audio/narration/swarm-4.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, thoughtful] So spending per resident is linked more to age than to how far north an area is. That is why we compare each benefit with the age group it is for.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4121,
+          "stitchedTo": {
+            "previous": "swarm-3",
+            "next": "landing-1"
+          }
+        },
+        "credits": 20
+      }
+    },
+    {
+      "id": "landing-1",
+      "kind": "narration",
+      "chapter": "the-landing",
+      "file": "/audio/narration/landing-1.webm",
+      "fallback": "/audio/narration/landing-1.m4a",
+      "durationMs": 3288,
+      "bytes": {
+        "webm": 18244,
+        "m4a": 24950
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.6,
+        "truePeakDbtp": -2.1
+      },
+      "loop": false,
+      "text": "Each of these areas has its own page of figures.",
+      "captions": "/audio/narration/landing-1.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, measured documentary narration] Each of these areas has its own page of figures.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4122,
+          "stitchedTo": {
+            "previous": "swarm-4",
+            "next": "landing-2"
+          }
+        },
+        "credits": 11
+      }
+    },
+    {
+      "id": "landing-2",
+      "kind": "narration",
+      "chapter": "the-landing",
+      "file": "/audio/narration/landing-2.webm",
+      "fallback": "/audio/narration/landing-2.m4a",
+      "durationMs": 3368,
+      "bytes": {
+        "webm": 18656,
+        "m4a": 25241
+      },
+      "loudness": {
+        "targetLufs": -16,
+        "lufs": -16.5,
+        "truePeakDbtp": -2.3
+      },
+      "loop": false,
+      "text": "Enter your postcode to see how your area compares.",
+      "captions": "/audio/narration/landing-2.json",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/text-to-speech/{voice_id}/with-timestamps",
+        "modelId": "eleven_v4",
+        "prompt": "[calm, warm] Enter your postcode to see how your area compares.",
+        "voiceId": "Xb7hH8MSUJpSbSDYk0k2",
+        "voiceName": "Alice - Clear, Engaging Educator",
+        "settings": {
+          "stability": 0.65,
+          "similarity_boost": 0.75,
+          "seed": 4123,
+          "stitchedTo": {
+            "previous": "landing-1",
+            "next": null
+          }
+        },
+        "credits": 8
+      }
+    },
+    {
+      "id": "pour",
+      "kind": "sfx",
+      "file": "/audio/sfx/pour.webm",
+      "fallback": "/audio/sfx/pour.m4a",
+      "durationMs": 4008,
+      "bytes": {
+        "webm": 22624,
+        "m4a": 34100
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -18,
+        "truePeakDbtp": -7.3
+      },
+      "loop": false,
+      "use": "The total breaks up into dots that gather in one pile",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "Fine brass grains pouring in a steady stream onto a soft pile, gentle granular hiss, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 4,
+          "prompt_influence": 0.5,
+          "loop": false
+        },
+        "credits": 44
+      }
+    },
+    {
+      "id": "settle",
+      "kind": "sfx",
+      "file": "/audio/sfx/settle.webm",
+      "fallback": "/audio/sfx/settle.m4a",
+      "durationMs": 2008,
+      "bytes": {
+        "webm": 15367,
+        "m4a": 17482
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -19.1,
+        "truePeakDbtp": -1.7
+      },
+      "loop": false,
+      "use": "The pile or the columns of dots come to rest",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "A small pile of fine grains settling and shifting briefly, then silence, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 2,
+          "prompt_influence": 0.5,
+          "loop": false
+        },
+        "credits": 22
+      }
+    },
+    {
+      "id": "tick",
+      "kind": "sfx",
+      "file": "/audio/sfx/tick.webm",
+      "fallback": "/audio/sfx/tick.m4a",
+      "durationMs": 608,
+      "bytes": {
+        "webm": 4219,
+        "m4a": 5982
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -21.5,
+        "truePeakDbtp": -1.7
+      },
+      "loop": false,
+      "use": "A guess slider handle passes a step",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "One very soft wooden tick, like a quiet ruler detent, single short click, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 0.6,
+          "prompt_influence": 0.7,
+          "loop": false
+        },
+        "credits": 7
+      }
+    },
+    {
+      "id": "lock",
+      "kind": "sfx",
+      "file": "/audio/sfx/lock.webm",
+      "fallback": "/audio/sfx/lock.m4a",
+      "durationMs": 1008,
+      "bytes": {
+        "webm": 5961,
+        "m4a": 9452
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -30,
+        "truePeakDbtp": -2.9
+      },
+      "loop": false,
+      "use": "The reader locks a guess",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "A single soft mechanical latch click, small brass catch closing, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 1,
+          "prompt_influence": 0.7,
+          "loop": false
+        },
+        "credits": 11
+      }
+    },
+    {
+      "id": "reveal",
+      "kind": "sfx",
+      "file": "/audio/sfx/reveal.webm",
+      "fallback": "/audio/sfx/reveal.m4a",
+      "durationMs": 2488,
+      "bytes": {
+        "webm": 17760,
+        "m4a": 21411
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -18,
+        "truePeakDbtp": -4.4
+      },
+      "loop": false,
+      "use": "The real split appears beside the guess",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "A gentle soft swell of air ending in a faint low bell tone, subtle and calm, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 2.5,
+          "prompt_influence": 0.5,
+          "loop": false
+        },
+        "credits": 28
+      }
+    },
+    {
+      "id": "stack-loop",
+      "kind": "sfx",
+      "file": "/audio/sfx/stack-loop.webm",
+      "fallback": "/audio/sfx/stack-loop.m4a",
+      "durationMs": 4008,
+      "bytes": {
+        "webm": 28046,
+        "m4a": 34609
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -27,
+        "truePeakDbtp": -2
+      },
+      "loop": true,
+      "use": "The dots stack into one column for each benefit",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "Continuous dense soft clicking of small wooden tokens placed one after another in neat rows, steady even rhythm with no gaps, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 4,
+          "prompt_influence": 0.7,
+          "loop": true
+        },
+        "credits": 44
+      }
+    },
+    {
+      "id": "pan",
+      "kind": "sfx",
+      "file": "/audio/sfx/pan.webm",
+      "fallback": "/audio/sfx/pan.m4a",
+      "durationMs": 2488,
+      "bytes": {
+        "webm": 16195,
+        "m4a": 21604
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -17.6,
+        "truePeakDbtp": -2.5
+      },
+      "loop": false,
+      "use": "The camera pans along the columns",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "A slow, very soft airy whoosh passing by, smooth and even, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 2.5,
+          "prompt_influence": 0.5,
+          "loop": false
+        },
+        "credits": 28
+      }
+    },
+    {
+      "id": "rain",
+      "kind": "sfx",
+      "file": "/audio/sfx/rain.webm",
+      "fallback": "/audio/sfx/rain.m4a",
+      "durationMs": 4008,
+      "bytes": {
+        "webm": 32005,
+        "m4a": 34709
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -25.5,
+        "truePeakDbtp": -0.2
+      },
+      "loop": false,
+      "use": "The dots move to their constituencies on the map",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "Light patter of fine grains falling onto a wooden table, scattered and soft, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 4,
+          "prompt_influence": 0.5,
+          "loop": false
+        },
+        "credits": 44
+      }
+    },
+    {
+      "id": "rise",
+      "kind": "sfx",
+      "file": "/audio/sfx/rise.webm",
+      "fallback": "/audio/sfx/rise.m4a",
+      "durationMs": 1488,
+      "bytes": {
+        "webm": 8430,
+        "m4a": 13424
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -18,
+        "truePeakDbtp": -2.6
+      },
+      "loop": false,
+      "use": "Each constituency rises to its height on the 3D map",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "A soft rising tonal whoosh, gentle upward movement, smooth, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 1.5,
+          "prompt_influence": 0.5,
+          "loop": false
+        },
+        "credits": 17
+      }
+    },
+    {
+      "id": "morph",
+      "kind": "sfx",
+      "file": "/audio/sfx/morph.webm",
+      "fallback": "/audio/sfx/morph.m4a",
+      "durationMs": 2008,
+      "bytes": {
+        "webm": 12833,
+        "m4a": 17498
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -18.1,
+        "truePeakDbtp": -4.3
+      },
+      "loop": false,
+      "use": "The map switches between real and equal-size shapes, or turns into a chart of dots",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "A smooth soft airy transition sweep with a faint shimmer, subtle, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 2,
+          "prompt_influence": 0.5,
+          "loop": false
+        },
+        "credits": 22
+      }
+    },
+    {
+      "id": "tilt",
+      "kind": "sfx",
+      "file": "/audio/sfx/tilt.webm",
+      "fallback": "/audio/sfx/tilt.m4a",
+      "durationMs": 2008,
+      "bytes": {
+        "webm": 10636,
+        "m4a": 17663
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -18.6,
+        "truePeakDbtp": -2.2
+      },
+      "loop": false,
+      "use": "The camera tilts to show the 3D map",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "A deep, soft, slow whoosh of a camera moving through still air, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 2,
+          "prompt_influence": 0.5,
+          "loop": false
+        },
+        "credits": 22
+      }
+    },
+    {
+      "id": "land",
+      "kind": "sfx",
+      "file": "/audio/sfx/land.webm",
+      "fallback": "/audio/sfx/land.m4a",
+      "durationMs": 1008,
+      "bytes": {
+        "webm": 6306,
+        "m4a": 9209
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -23.4,
+        "truePeakDbtp": -2.1
+      },
+      "loop": false,
+      "use": "The map moves to the reader’s area",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "A soft low thud of a small object landing on felt, damped, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 1,
+          "prompt_influence": 0.6,
+          "loop": false
+        },
+        "credits": 11
+      }
+    },
+    {
+      "id": "open",
+      "kind": "sfx",
+      "file": "/audio/sfx/open.webm",
+      "fallback": "/audio/sfx/open.m4a",
+      "durationMs": 1488,
+      "bytes": {
+        "webm": 9171,
+        "m4a": 13337
+      },
+      "loudness": {
+        "targetLufs": -18,
+        "lufs": -18.4,
+        "truePeakDbtp": -2.5
+      },
+      "loop": false,
+      "use": "The black bars slide away to open the explorer",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/sound-generation",
+        "modelId": "eleven_text_to_sound_v2",
+        "prompt": "A smooth soft mechanical slide of a panel opening, quiet and even, close, dry, quiet, no music, no voices",
+        "settings": {
+          "duration_seconds": 1.5,
+          "prompt_influence": 0.6,
+          "loop": false
+        },
+        "credits": 17
+      }
+    },
+    {
+      "id": "score",
+      "kind": "score",
+      "file": "/audio/score/score.webm",
+      "fallback": "/audio/score/score.m4a",
+      "durationMs": 105032,
+      "bytes": {
+        "webm": 907546,
+        "m4a": 1286359
+      },
+      "loudness": {
+        "targetLufs": -22,
+        "lufs": -22,
+        "truePeakDbtp": -5.2
+      },
+      "loop": false,
+      "use": "Underscore for the whole film, about 105 seconds",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/music",
+        "modelId": "music_v2_5",
+        "prompt": {
+          "chunks": [
+            {
+              "text": "",
+              "duration_ms": 22000,
+              "positive_styles": [
+                "understated documentary score",
+                "solo felt piano",
+                "sparse sustained notes",
+                "warm low string pad",
+                "slow tempo, 68 bpm",
+                "contemplative and curious",
+                "intimate close-miked recording"
+              ],
+              "negative_styles": [
+                "vocals",
+                "singing",
+                "choir",
+                "spoken word",
+                "drum kit",
+                "electronic beat",
+                "EDM",
+                "epic trailer",
+                "braams",
+                "aggressive",
+                "ominous",
+                "triumphant fanfare",
+                "synth lead",
+                "busy",
+                "sad"
+              ],
+              "context_adherence": "high"
+            },
+            {
+              "text": "",
+              "duration_ms": 26000,
+              "positive_styles": [
+                "gentle pizzicato cello pulse",
+                "felt piano figures",
+                "soft ticking rhythm",
+                "measured forward motion",
+                "curious"
+              ],
+              "negative_styles": [
+                "vocals",
+                "singing",
+                "choir",
+                "spoken word",
+                "drum kit",
+                "electronic beat",
+                "EDM",
+                "epic trailer",
+                "braams",
+                "aggressive",
+                "ominous",
+                "triumphant fanfare",
+                "synth lead",
+                "tense"
+              ],
+              "context_adherence": "high"
+            },
+            {
+              "text": "",
+              "duration_ms": 30000,
+              "positive_styles": [
+                "strings swell gently",
+                "fuller warm arrangement",
+                "open and expansive",
+                "rising harmony",
+                "restrained lift",
+                "soft timpani roll"
+              ],
+              "negative_styles": [
+                "vocals",
+                "singing",
+                "choir",
+                "spoken word",
+                "drum kit",
+                "electronic beat",
+                "EDM",
+                "epic trailer",
+                "braams",
+                "aggressive",
+                "ominous",
+                "triumphant fanfare",
+                "synth lead",
+                "loud climax",
+                "heroic"
+              ],
+              "context_adherence": "high"
+            },
+            {
+              "text": "",
+              "duration_ms": 27000,
+              "positive_styles": [
+                "return to solo felt piano",
+                "settled major chord",
+                "gentle resolution",
+                "slow fade out",
+                "ends on a held chord"
+              ],
+              "negative_styles": [
+                "vocals",
+                "singing",
+                "choir",
+                "spoken word",
+                "drum kit",
+                "electronic beat",
+                "EDM",
+                "epic trailer",
+                "braams",
+                "aggressive",
+                "ominous",
+                "triumphant fanfare",
+                "synth lead",
+                "abrupt ending"
+              ],
+              "context_adherence": "high"
+            }
+          ]
+        },
+        "credits": null
+      }
+    },
+    {
+      "id": "ambience-loop",
+      "kind": "ambience",
+      "file": "/audio/score/ambience-loop.webm",
+      "fallback": "/audio/score/ambience-loop.m4a",
+      "durationMs": 30008,
+      "bytes": {
+        "webm": 193227,
+        "m4a": 307523
+      },
+      "loudness": {
+        "targetLufs": -22,
+        "lufs": -22,
+        "truePeakDbtp": -11.7
+      },
+      "loop": true,
+      "use": "Bed under the poster and between chapters; loops every 30 s",
+      "licence": "Generated with ElevenLabs on a paid plan; used under the ElevenLabs Terms of Service",
+      "source": {
+        "provider": "ElevenLabs",
+        "endpoint": "POST /v1/music",
+        "modelId": "music_v2_5",
+        "prompt": "Ambient underscore bed: soft sustained warm analogue pad in a low register, very slow movement, no melody, no rhythm, no percussion, steady level, calm and neutral, documentary room tone",
+        "settings": {
+          "music_length_ms": 48000,
+          "force_instrumental": true,
+          "loopWindow": {
+            "startS": 8,
+            "loopS": 30,
+            "fadeS": 4
+          }
+        },
+        "credits": null
+      }
+    }
+  ]
+}
