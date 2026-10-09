@@ -37,7 +37,10 @@ pnpm run audio:build -- --only narration   # after a beat's words change; --offl
 `/styleguide` (noindex) shows every token, ramp, type style and component.
 Check visual changes there in light, dark and 390px width.
 
-Deploy with `pnpm run deploy`, never bare `pnpm deploy`: that is pnpm's own
+A push to `main` deploys: Cloudflare Workers Builds runs
+`pnpm run data:pull && pnpm run build`, then `pnpm exec wrangler deploy`, to
+the `who-gets-what` Worker on whogetswhat.uk. To deploy from a machine
+instead, run `pnpm run deploy`, never bare `pnpm deploy`: that is pnpm's own
 workspace command, not the package script.
 
 ## Task guides
